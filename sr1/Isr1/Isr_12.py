@@ -31,10 +31,12 @@ def json_table(fl):
 
 def main():
     a = json_table('MOCKDATA.json')
+    print(type(a))
     for el in a:
         print(el)
   
 if __name__ == "__main__":
-    assert json_table('MOCKDATA.json') is list, "Типы не совпадают" 
-    assert json_table('MOCKDATA.json') is not  tuple
-    
+    assert type(json_table('MOCKDATA.json')) == list, "Типы не совпадают" 
+    assert type(json_table('MOCKDATA.json')) != tuple
+
+main()    

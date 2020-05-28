@@ -32,7 +32,7 @@ def close_db(conn):
 close_db(conn)
 
 # create_table('stocks',['id int', 'date text', 'qty real'])
-def create_tb(c, tb_name, domens_lst):
+def create_tb(c, domens_lst):
     # убедиться что таблицы нет
     # если она есть, пропустить создание
     # при этом он адолжна быть объектом класса <class 'sqlite3.Connection'>
@@ -41,7 +41,7 @@ def create_tb(c, tb_name, domens_lst):
     else:
         try:
         # Create table           
-            c.execute(f"CREATE TABLE {tb_name} text {domens_lst[0]}, text {domens_lst[1]}, text {domens_lst[2]}, real {domens_lst[3]}, real {domens_lst[4]}")
+            c.execute(f"CREATE TABLE stoks text {domens_lst[0]}, text {domens_lst[1]}, text {domens_lst[2]}, real {domens_lst[3]}, real {domens_lst[4]}")
         except sqlite3.ProgrammingError:
             print('tb already exists.')
   
@@ -69,4 +69,4 @@ def del_data(c, tb_name, condition):
     except sqlite3.ProgrammingError:
         print('Data not found.')
         
-create_tb(conn, 'stocks', ['papa','mama', 'you', 12,13])
+create_tb(conn, ['papa','mama', 'you', 12,13])

@@ -25,6 +25,11 @@ try:
         table.append(res)
 except NameError as e:
     print(e)
+else:
+    print("Congratulations, your program work right!")
+finally:
+    print("You can't make an omelette without breaking a few eggs.")
+    
 
 def json_table(fl):
   

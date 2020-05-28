@@ -29,10 +29,10 @@ def close_db(conn):
         pass
     finally:
         print('ЕХИТ')
-close_db(conn)
+# close_db(conn)
 
 # create_table('stocks',['id int', 'date text', 'qty real'])
-def create_tb(c, tb_name, fieldset):
+def create_tb(c, fieldset):
     # убедиться что таблицы нет
     # если она есть, пропустить создание
     # при этом он адолжна быть объектом класса <class 'sqlite3.Connection'>
@@ -41,12 +41,12 @@ def create_tb(c, tb_name, fieldset):
     else:
         try:
         # Create table
-            c.execute(f"CREATE TABLE {tb_name} {fieldset}")
+            c.execute(f"CREATE TABLE 'stocks' {fieldset}")
         except sqlite3.ProgrammingError:
             print('tb already exists.')
   
 # еще 4 функции: добавление данных в таблицу, обновление, удаление, выборка 
-
+create_tb(conn,['id int', 'date text', 'qty real'])
 def insert_data(c, tb_name, *args):
     data = args[0]
     c.execute(f"INSERT INTO {tb_name} VALUES {data}")
